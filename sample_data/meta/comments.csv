@@ -1,0 +1,13 @@
+comment_id,post_id,parent_id,message,created_time,author,like_count,comment_count,is_reply,content_status,collected_at,sample
+sample_meta_cm01,sample_meta_p02,,Fictional sample Page comment 1.,2026-01-14 12:00:00+00:00,Sample Account 1,1,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm02,sample_meta_p03,,Fictional sample Page comment 2.,2026-01-13 12:00:00+00:00,Sample Account 2,2,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm03,sample_meta_p04,,Fictional sample Page comment 3.,2026-01-12 12:00:00+00:00,Sample Account 3,0,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm04,sample_meta_p05,,Fictional sample Page comment 4.,2026-01-11 12:00:00+00:00,Sample Account 4,1,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm05,sample_meta_p06,,Fictional sample Page comment 5.,2026-01-10 12:00:00+00:00,Sample Account 5,2,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm06,sample_meta_p07,,Fictional sample Page comment 6.,2026-01-09 12:00:00+00:00,Sample Account 6,0,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm07,sample_meta_p08,,[unavailable],2026-01-08 12:00:00+00:00,Sample Account 7,1,0,False,unavailable,2026-01-15 12:00:00+00:00,True
+sample_meta_cm08,sample_meta_p09,,Fictional sample Page comment 8.,2026-01-07 12:00:00+00:00,Sample Account 8,2,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm09,sample_meta_p10,,Fictional sample Page comment 9.,2026-01-06 12:00:00+00:00,Sample Account 9,0,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm10,sample_meta_p01,,Fictional sample Page comment 10.,2026-01-05 12:00:00+00:00,Sample Account 10,1,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm11,sample_meta_p02,sample_meta_cm01,Fictional sample Page comment 11.,2026-01-04 12:00:00+00:00,Sample Account 11,2,0,True,available,2026-01-15 12:00:00+00:00,True
+sample_meta_cm12,sample_meta_p03,sample_meta_cm02,Fictional sample Page comment 12.,2026-01-03 12:00:00+00:00,Sample Account 12,0,0,True,available,2026-01-15 12:00:00+00:00,True

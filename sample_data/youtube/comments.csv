@@ -1,0 +1,14 @@
+comment_id,video_id,parent_id,author_name,text,like_count,published_at,updated_at,reply_count,is_reply,content_status,collected_at,sample
+sample_yt_cm01,sample_yt_v02,,Sample User 1,Fictional sample comment 1.,1,2026-01-14 12:00:00+00:00,2026-01-14 12:00:00+00:00,1,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm02,sample_yt_v03,,Sample User 2,Fictional sample comment 2.,2,2026-01-13 12:00:00+00:00,2026-01-13 12:00:00+00:00,1,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm03,sample_yt_v04,,Sample User 3,Fictional sample comment 3.,3,2026-01-12 12:00:00+00:00,2026-01-12 12:00:00+00:00,1,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm04,sample_yt_v05,,Sample User 4,Fictional sample comment 4.,0,2026-01-11 12:00:00+00:00,2026-01-11 12:00:00+00:00,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm05,sample_yt_v06,,Sample User 5,Fictional sample comment 5.,1,2026-01-10 12:00:00+00:00,2026-01-10 12:00:00+00:00,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm06,sample_yt_v07,,Sample User 6,[unavailable],2,2026-01-09 12:00:00+00:00,2026-01-09 12:00:00+00:00,0,False,unavailable,2026-01-15 12:00:00+00:00,True
+sample_yt_cm07,sample_yt_v08,,Sample User 7,Fictional sample comment 7.,3,2026-01-08 12:00:00+00:00,2026-01-08 12:00:00+00:00,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm08,sample_yt_v09,,Sample User 8,Fictional sample comment 8.,0,2026-01-07 12:00:00+00:00,2026-01-07 12:00:00+00:00,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm09,sample_yt_v10,,Sample User 9,Fictional sample comment 9.,1,2026-01-06 12:00:00+00:00,2026-01-06 12:00:00+00:00,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm10,sample_yt_v01,,Sample User 10,Fictional sample comment 10.,2,2026-01-05 12:00:00+00:00,2026-01-05 12:00:00+00:00,0,False,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm11,sample_yt_v02,sample_yt_cm01,Sample User 11,Fictional sample comment 11.,3,2026-01-04 12:00:00+00:00,2026-01-04 12:00:00+00:00,0,True,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm12,sample_yt_v03,sample_yt_cm02,Sample User 12,Fictional sample comment 12.,0,2026-01-03 12:00:00+00:00,2026-01-03 12:00:00+00:00,0,True,available,2026-01-15 12:00:00+00:00,True
+sample_yt_cm13,sample_yt_v04,sample_yt_cm03,Sample User 13,Fictional sample comment 13.,1,2026-01-02 12:00:00+00:00,2026-01-02 12:00:00+00:00,0,True,available,2026-01-15 12:00:00+00:00,True

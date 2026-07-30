@@ -1,0 +1,6 @@
+channel_id,channel_title,description,published_at,subscriber_count,video_count,view_count,country,collected_at,sample
+sample_yt_c01,Sample Channel 1,Fictional channel used for schema demonstration.,2025-03-20 12:00:00+00:00,1000,21,50000,US,2026-01-15 12:00:00+00:00,True
+sample_yt_c02,Sample Channel 2,Fictional channel used for schema demonstration.,2025-03-19 12:00:00+00:00,2000,22,100000,US,2026-01-15 12:00:00+00:00,True
+sample_yt_c03,Sample Channel 3,Fictional channel used for schema demonstration.,2025-03-18 12:00:00+00:00,3000,23,150000,,2026-01-15 12:00:00+00:00,True
+sample_yt_c04,Sample Channel 4,Fictional channel used for schema demonstration.,2025-03-17 12:00:00+00:00,4000,24,200000,US,2026-01-15 12:00:00+00:00,True
+sample_yt_c05,Sample Channel 5,Fictional channel used for schema demonstration.,2025-03-16 12:00:00+00:00,5000,25,250000,US,2026-01-15 12:00:00+00:00,True

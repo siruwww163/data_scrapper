@@ -1,0 +1,14 @@
+comment_id,post_id,parent_id,author,body,score,created_utc,depth,is_submitter,is_reply,content_status,collected_at,sample
+sample_rd_cm01,sample_rd_p02,t3_sample_rd_p02,sample_commenter_1,Fictional sample comment 1.,1,2026-01-14 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm02,sample_rd_p03,t3_sample_rd_p03,sample_commenter_2,Fictional sample comment 2.,2,2026-01-13 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm03,sample_rd_p04,t3_sample_rd_p04,sample_commenter_3,Fictional sample comment 3.,3,2026-01-12 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm04,sample_rd_p05,t3_sample_rd_p05,sample_commenter_4,Fictional sample comment 4.,4,2026-01-11 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm05,sample_rd_p06,t3_sample_rd_p06,,[removed],5,2026-01-10 12:00:00+00:00,0,False,False,removed,2026-01-15 12:00:00+00:00,True
+sample_rd_cm06,sample_rd_p07,t3_sample_rd_p07,sample_commenter_6,Fictional sample comment 6.,6,2026-01-09 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm07,sample_rd_p08,t3_sample_rd_p08,sample_commenter_7,Fictional sample comment 7.,7,2026-01-08 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm08,sample_rd_p09,t3_sample_rd_p09,sample_commenter_8,Fictional sample comment 8.,8,2026-01-07 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm09,sample_rd_p10,t3_sample_rd_p10,sample_commenter_9,Fictional sample comment 9.,9,2026-01-06 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm10,sample_rd_p01,t3_sample_rd_p01,sample_commenter_10,Fictional sample comment 10.,10,2026-01-05 12:00:00+00:00,0,False,False,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm11,sample_rd_p02,t1_sample_rd_cm01,sample_commenter_11,Fictional sample comment 11.,11,2026-01-04 12:00:00+00:00,1,False,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm12,sample_rd_p03,t1_sample_rd_cm02,sample_commenter_12,Fictional sample comment 12.,12,2026-01-03 12:00:00+00:00,1,False,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_cm13,sample_rd_p04,t1_sample_rd_cm03,sample_commenter_13,Fictional sample comment 13.,13,2026-01-02 12:00:00+00:00,1,False,True,available,2026-01-15 12:00:00+00:00,True

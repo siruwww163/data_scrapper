@@ -1,0 +1,11 @@
+post_id,subreddit,title,selftext,author,created_utc,score,upvote_ratio,num_comments,url,post_flair,is_self,content_status,collected_at,sample
+sample_rd_p01,SampleResearch,Sample discussion 1,Fictional demonstration content.,sample_user_1,2026-01-14 12:00:00+00:00,9,0.72,3,https://example.invalid/sample-reddit-1,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p02,SampleResearch,Sample discussion 2,Fictional demonstration content.,sample_user_2,2026-01-13 12:00:00+00:00,18,0.74,4,https://example.invalid/sample-reddit-2,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p03,SampleResearch,Sample discussion 3,,sample_user_3,2026-01-12 12:00:00+00:00,27,0.76,5,https://example.invalid/sample-reddit-3,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p04,SampleResearch,Sample discussion 4,Fictional demonstration content.,sample_user_4,2026-01-11 12:00:00+00:00,36,0.78,6,https://example.invalid/sample-reddit-4,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p05,SampleResearch,Sample discussion 5,Fictional demonstration content.,sample_user_5,2026-01-10 12:00:00+00:00,45,0.8,7,https://example.invalid/sample-reddit-5,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p06,SampleResearch,Sample discussion 6,Fictional demonstration content.,sample_user_6,2026-01-09 12:00:00+00:00,54,0.82,8,https://example.invalid/sample-reddit-6,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p07,SampleResearch,Sample discussion 7,Fictional demonstration content.,sample_user_7,2026-01-08 12:00:00+00:00,63,0.84,9,https://example.invalid/sample-reddit-7,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p08,SampleResearch,Sample discussion 8,Fictional demonstration content.,,2026-01-07 12:00:00+00:00,72,0.86,10,https://example.invalid/sample-reddit-8,,True,deleted,2026-01-15 12:00:00+00:00,True
+sample_rd_p09,SampleResearch,Sample discussion 9,Fictional demonstration content.,sample_user_9,2026-01-06 12:00:00+00:00,81,0.88,11,https://example.invalid/sample-reddit-9,,True,available,2026-01-15 12:00:00+00:00,True
+sample_rd_p10,SampleResearch,Sample discussion 10,Fictional demonstration content.,sample_user_10,2026-01-05 12:00:00+00:00,90,0.9,12,https://example.invalid/sample-reddit-10,,True,available,2026-01-15 12:00:00+00:00,True

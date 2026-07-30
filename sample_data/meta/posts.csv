@@ -1,0 +1,11 @@
+post_id,page_id,message,created_time,permalink_url,attachments,shares,insights_status,collected_at,sample
+sample_meta_p01,sample_meta_page02,Fictional sample Page post 1.,2026-01-14 12:00:00+00:00,https://example.invalid/sample-meta-post-1,[],2,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p02,sample_meta_page03,Fictional sample Page post 2.,2026-01-13 12:00:00+00:00,https://example.invalid/sample-meta-post-2,[],4,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p03,sample_meta_page01,Fictional sample Page post 3.,2026-01-12 12:00:00+00:00,https://example.invalid/sample-meta-post-3,[],6,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p04,sample_meta_page02,Fictional sample Page post 4.,2026-01-11 12:00:00+00:00,https://example.invalid/sample-meta-post-4,[],8,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p05,sample_meta_page03,,2026-01-10 12:00:00+00:00,https://example.invalid/sample-meta-post-5,[],10,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p06,sample_meta_page01,Fictional sample Page post 6.,2026-01-09 12:00:00+00:00,https://example.invalid/sample-meta-post-6,[],12,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p07,sample_meta_page02,Fictional sample Page post 7.,2026-01-08 12:00:00+00:00,https://example.invalid/sample-meta-post-7,[],14,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p08,sample_meta_page03,Fictional sample Page post 8.,2026-01-07 12:00:00+00:00,https://example.invalid/sample-meta-post-8,[],16,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p09,sample_meta_page01,Fictional sample Page post 9.,2026-01-06 12:00:00+00:00,https://example.invalid/sample-meta-post-9,[],18,permission required,2026-01-15 12:00:00+00:00,True
+sample_meta_p10,sample_meta_page02,Fictional sample Page post 10.,2026-01-05 12:00:00+00:00,https://example.invalid/sample-meta-post-10,[],20,permission required,2026-01-15 12:00:00+00:00,True
