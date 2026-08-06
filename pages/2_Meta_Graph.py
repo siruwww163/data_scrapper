@@ -15,6 +15,7 @@ render_platform_page(
         "Insights / reactions": ["permission-dependent; unavailable is recorded rather than inferred"],
     },
     primary_table="posts", comments_table="comments", id_column="post_id",
+    sample_status=["Live API status: Not connected", "Access depends on Page permissions and access token scope."],
     pagination="The collector follows the API-provided cursor-based paging.next URL until the cap is reached.",
     error_strategy="Permission errors remain explicit. Rate limits and selected server errors use bounded exponential backoff; no unavailable metrics are fabricated.",
     limitations=[
@@ -24,4 +25,3 @@ render_platform_page(
     ],
     special_note="Meta Graph API access is determined by the access token, app permissions, Page access, and Meta review requirements.",
 )
-

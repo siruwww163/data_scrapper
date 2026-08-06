@@ -16,6 +16,7 @@ render_platform_page(
                     "updated_at", "reply_count", "is_reply"],
     },
     primary_table="videos", comments_table="comments", id_column="video_id",
+    prefer_real=True,
     pagination="Each list request follows nextPageToken until the record cap or the final page.",
     error_strategy="429 and selected 5xx responses use bounded exponential backoff. Missing optional fields are kept as null; videos with disabled comments are logged and skipped.",
     limitations=[
@@ -25,4 +26,3 @@ render_platform_page(
         "Raw JSON and processed CSV are stored separately.",
     ],
 )
-

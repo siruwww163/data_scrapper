@@ -3,6 +3,7 @@ import pandas as pd
 import streamlit as st
 
 from ui.style import configure_page, sample_notice
+from ui.platform_page import youtube_has_real_data
 
 configure_page("Official Social Media API Data Collection Demo")
 
@@ -13,7 +14,21 @@ st.write(
     "This project demonstrates official API authentication, pagination, resilient collection, raw-data preservation, "
     "schema extraction, validation, and research-ready tabular output. It intentionally stops before analysis or modeling."
 )
+st.info(
+    "This demo includes a verified YouTube Data API collection pipeline. The Meta Graph and Reddit sections "
+    "currently use clearly labeled sample datasets to demonstrate their schemas and data coverage. Sample "
+    "records are not presented as live API results."
+)
 sample_notice()
+
+st.header("Platform status")
+youtube_real = youtube_has_real_data()
+st.dataframe(pd.DataFrame([
+    {"Platform": "YouTube", "Data source": "Real pre-collected API data" if youtube_real else "Sample data",
+     "API status": "Connected" if youtube_real else "Not yet collected"},
+    {"Platform": "Meta Graph", "Data source": "Sample data", "API status": "Not connected"},
+    {"Platform": "Reddit", "Data source": "Sample data", "API status": "Not connected in this demo"},
+]), hide_index=True, width="stretch")
 
 cards = [
     ("YouTube Data API", "Videos<br>Channels<br>Comments and replies<br>Engagement metrics"),
@@ -37,7 +52,7 @@ comparison = pd.DataFrame([
 ], columns=["Platform", "Primary content object", "Creator or account object", "Comments", "Replies",
             "Engagement metrics", "User or channel information", "Authentication method", "Pagination method",
             "Main access limitation", "Raw storage format", "Processed storage format"])
-st.dataframe(comparison, hide_index=True, use_container_width=True)
+st.dataframe(comparison, hide_index=True, width="stretch")
 
 st.header("Collection workflow")
 st.markdown('<div class="pipeline">Authentication → API request → Pagination → Raw JSON → Schema extraction → '
@@ -61,4 +76,3 @@ data/processed/ Structured research tables
 sample_data/  Offline demonstration records
 pages/        Platform and pipeline views
 utils/        Persistence, logging, validation""", language="text")
-

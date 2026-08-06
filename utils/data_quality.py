@@ -15,7 +15,8 @@ def quality_summary(
     records_skipped: int = 0,
 ) -> dict[str, Any]:
     """Calculate transparent, non-analytical readiness checks."""
-    reply_count = int(comments.get("is_reply", pd.Series(dtype=bool)).fillna(False).astype(bool).sum())
+    reply_values = comments.get("is_reply", pd.Series(dtype=bool))
+    reply_count = int(reply_values.map(lambda value: value is True or str(value).lower() == "true").sum())
     return {
         "Primary objects": len(primary),
         "Comments": len(comments),
@@ -31,4 +32,3 @@ def quality_summary(
 def remove_duplicate_ids(frame: pd.DataFrame, id_column: str) -> pd.DataFrame:
     """Keep the first record for each non-null unique identifier."""
     return frame.drop_duplicates(subset=[id_column], keep="first").reset_index(drop=True)
-

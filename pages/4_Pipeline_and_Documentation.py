@@ -23,7 +23,7 @@ controls = [
     ("Skipped objects", "Objects whose comments cannot be accessed are logged without stopping the full run."),
     ("Presentation boundary", "Streamlit reads pre-collected files and never calls an API during page rendering."),
 ]
-st.dataframe(pd.DataFrame(controls, columns=["Control", "Implementation"]), hide_index=True, use_container_width=True)
+st.dataframe(pd.DataFrame(controls, columns=["Control", "Implementation"]), hide_index=True, width="stretch")
 
 st.header("Run sequence")
 st.code("""# 1. Configure credentials only for collectors you intend to run

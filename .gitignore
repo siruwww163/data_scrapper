@@ -6,4 +6,6 @@ __pycache__/
 .streamlit/secrets.toml
 data/raw/*/*.json
 !data/raw/*/.gitkeep
-
+data/processed/youtube/*.csv
+data/processed/youtube/*.json
+!data/processed/youtube/.gitkeep

@@ -43,6 +43,7 @@ The bundled records are clearly labeled, synthetic sample data. They are not rea
 │   └── processed/{youtube,meta,reddit}/
 ├── sample_data/{youtube,meta,reddit}/
 ├── generate_sample_data.py
+├── run_pipeline.py
 ├── requirements.txt
 └── .env.example
 ```
@@ -73,6 +74,7 @@ Add only the credentials needed for collectors you intend to run. The website wo
 |---|---|---|
 | `YOUTUBE_API_KEY` | YouTube | Public-data endpoints; some operations require OAuth instead |
 | `META_ACCESS_TOKEN` | Meta | Must carry the required reviewed permissions and Page access |
+| `META_PAGE_ID` | Meta | Optional until the separate Meta collector is run |
 | `META_API_VERSION` | Meta | Explicit Graph API version |
 | `REDDIT_CLIENT_ID` | Reddit | OAuth application identifier |
 | `REDDIT_CLIENT_SECRET` | Reddit | OAuth application secret |
@@ -80,13 +82,50 @@ Add only the credentials needed for collectors you intend to run. The website wo
 
 Credentials are read through environment variables, excluded by `.gitignore`, and never written to logs.
 
+Only `YOUTUBE_API_KEY` is required for the supported real collection workflow. Meta and Reddit values may remain empty; missing credentials for those platforms do not affect Streamlit startup.
+
+## Collect real YouTube data
+
+Create `.env` from the safe template and add the key locally:
+
+```powershell
+Copy-Item .env.example .env
+notepad .env
+```
+
+```dotenv
+YOUTUBE_API_KEY=your_real_key_here
+META_ACCESS_TOKEN=
+META_PAGE_ID=
+REDDIT_CLIENT_ID=
+REDDIT_CLIENT_SECRET=
+REDDIT_USER_AGENT=
+```
+
+Never commit `.env`. Run the complete offline pipeline before starting the website:
+
+```powershell
+python run_pipeline.py --platform youtube --query "artificial intelligence education" --max-videos 20 --max-comments 10
+```
+
+This creates complete, credential-free raw responses in `data/raw/youtube/`, then writes `videos.csv`, `channels.csv`, `comments.csv`, `replies.csv`, `data_dictionary.csv`, and `data_quality.json` to `data/processed/youtube/`.
+
+The two stages can also run separately:
+
+```powershell
+python collectors/youtube_collector.py --query "artificial intelligence education" --max-videos 20 --max-comments 10
+python processors/youtube_processor.py
+```
+
 ## Run the website
 
 ```powershell
 streamlit run app.py
 ```
 
-Use the sidebar to open YouTube, Meta Graph, Reddit, and pipeline documentation pages. Each platform page provides a consistent Overview, Raw JSON, Processed Data, Data Dictionary, and Technical Notes layout. Sample CSV files can be downloaded from the browser.
+Use the sidebar to open YouTube, Meta Graph, Reddit, and pipeline documentation pages. Each platform page provides a consistent Overview, Raw JSON, Processed Data, Data Dictionary, and Technical Notes layout. CSV files can be downloaded from the browser.
+
+The app makes no live API requests. YouTube prefers verified, pre-collected real files and falls back to its sample dataset. It only labels files as real when `data_quality.json` contains `is_sample_data: false` and all required non-empty CSV files exist. The homepage and YouTube page show the active source. Meta and Reddit always use clearly labeled sample data in this demo.
 
 To regenerate the deterministic sample files:
 
@@ -94,18 +133,7 @@ To regenerate the deterministic sample files:
 python generate_sample_data.py
 ```
 
-## Running collectors
-
-Collectors are library-style clients so a research collection run can supply its own targets, dates, and record caps.
-
-```python
-from pathlib import Path
-from collectors.youtube_collector import YouTubeCollector
-
-client = YouTubeCollector(timeout=30, max_retries=3)
-videos = client.collect_videos("research methods", max_records=25)
-client.persist(videos, Path("data/raw/youtube/videos.json"))
-```
+## Other collectors
 
 Meta and Reddit follow the same separation:
 
@@ -122,18 +150,7 @@ posts = reddit.collect_subreddit_posts("AskSocialScience", max_records=25)
 
 Run collectors outside Streamlit. Choose targets consistent with platform terms, research ethics, and approved access. Store results in `data/raw/<platform>/`.
 
-## Running processors
-
-Processors accept Python lists of raw dictionaries and return Pandas dataframes:
-
-```python
-from processors.youtube_processor import process_videos
-from utils.file_utils import load_json, save_csv
-
-payload = load_json("data/raw/youtube/videos.json")
-frame = process_videos(payload["items"])
-save_csv(frame, "data/processed/youtube/videos.csv")
-```
+## Processing behavior
 
 They flatten nested structures, select stable fields, standardize timestamps to UTC, serialize nested values, preserve missing values, remove duplicate IDs, and support separate comment/reply records. `processors.common.create_data_dictionary` generates field dictionaries. The same processed data can optionally be written to SQLite with `pandas.DataFrame.to_sql`.
 
@@ -145,7 +162,7 @@ They flatten nested structures, select stable fields, standardize timestamps to 
 - Each collected record includes `collected_at`.
 - Unique object IDs are used for deduplication.
 - Deleted, removed, disabled, and unavailable content is flagged rather than reconstructed.
-- Raw data should be treated as append-only evidence; reruns should create a new timestamped collection file.
+- Raw data should be treated as evidence. The demo refreshes fixed filenames, so archive a timestamped copy before rerunning when historical snapshots are required.
 
 ## Authentication, pagination, and errors
 
@@ -155,7 +172,7 @@ They flatten nested structures, select stable fields, standardize timestamps to 
 | Meta Graph | Access token | Cursor-based `paging.next` | App review, permissions, token, and Page access |
 | Reddit | OAuth through PRAW | Listing iterator / `after` cursor | Listing limits, rate limits, and API rules |
 
-The shared HTTP collector applies request timeouts, bounded retries, and exponential backoff for rate limits and selected server errors. Exceptions contain no credentials. Platform collectors stop at `max_records`, keep raw JSON, and log skipped/inaccessible objects. Search and video-detail YouTube endpoints have different quota costs.
+The YouTube collector uses the official Google API client, bounded retries, and exponential backoff for 429 and temporary 5xx errors. Exceptions and output files contain no credentials. It follows `nextPageToken`, batches video/channel detail requests, and continues when a video's comments are disabled or unavailable. Search requests have a substantially different quota cost from video-detail requests; run conservative interview-sized collections.
 
 Meta Graph API access is explicitly permission-dependent. This project does **not** claim access to arbitrary Facebook users or public personal profiles. Page fields, comments, replies, reactions, and insights are shown only when the access token, reviewed app permissions, Page access, and current Meta requirements permit them. Unavailable insights are labeled `permission required`; they are never fabricated.
 
@@ -167,6 +184,10 @@ Meta Graph API access is explicitly permission-dependent. This project does **no
 - Reddit listing limits and removed/deleted content constrain completeness.
 - Counts in the sample UI describe the bundled fictional records, not platform populations.
 - The collectors demonstrate robust patterns but a production study should add run manifests, automated schema-change alerts, persistent retry queues, and study-specific tests.
+
+## Interview checklist
+
+Before an interview, run the YouTube pipeline while the API key and quota are available. Confirm that `data/processed/youtube/data_quality.json` says `"is_sample_data": false`, start Streamlit, and verify that both the homepage and YouTube page say `Real pre-collected API data` / `Data source: Real YouTube Data API collection`. Meta and Reddit must continue to say `Sample data` and `Not connected`.
 
 ## Ethics and privacy
 
